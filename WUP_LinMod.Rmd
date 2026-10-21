@@ -1,6 +1,6 @@
 ---
 title: "Linear Model with Prediction"
-author: "Dr. J"
+author: "Jennifer Contreras"
 date: "`r Sys.Date()`"
 output: html_document
 ---
@@ -40,12 +40,14 @@ head(mtcars)
 plot(mpg~wt,data=mtcars, pch=19)
 grid()
 ```
+
 This plot shows that as the weight increases, the mpg decrease.
 
 ### numerical summary
 ```{r}
 cor(mtcars$mpg, mtcars$wt)
 ```
+This number displays that the slope of the wt and mpg graph is -0.8676594 which means that there is a decreasing slope. This decreasing slope shows that as the weight, which is on the x axis, is increasing, the mpg, which is on the y axis, is decreasing. 
 
 ### model summary
 ```{r}
@@ -53,7 +55,8 @@ model1 <- lm(mpg ~ wt, data = mtcars)
 
 summary(model1)
 ```
-
+mpg (miles per gallon) is the response (Y)
+ wt (wt) is the predictor (X)
 
 # Model 2:
 
@@ -66,12 +69,14 @@ summary(model1)
 plot(mpg~disp,data=mtcars, pch=19)
 grid()
 ```
+
 This plot shows that as the displacement increases, the mpg decrease.
 
 ### numerical summary
 ```{r}
 cor(mtcars$mpg, mtcars$disp)
 ```
+This number displays that the slope of the disp and mpg graph is -0.8475514 which means that there is a decreasing slope. This decreasing slope shows that as the displacement, which is on the x axis, is increasing, the mpg, which is on the y axis, is decreasing. 
 
 ### model summary
 
@@ -80,7 +85,8 @@ cor(mtcars$mpg, mtcars$disp)
 model2 <- lm(mpg ~ disp, data = mtcars)
 summary(model2)
 ```
-
+mpg (miles per gallon) is the response (Y)
+ displacement (disp) is the predictor (X)
 
 # Model 3 :
 
@@ -92,6 +98,8 @@ summary(model2)
 ```{r}
 plot(mpg ~ wt+disp, data = mtcars)
 ```
+
+These plots show that as the displacement and weight increase, the mpg decreases.
 
 ### numerical summary
 
@@ -107,16 +115,26 @@ summary(model3)
  wt (wt) and displacement (disp) are the predictors (X's)
 
 ## data summary
-
 ### graphical summary
 ```{r}
-plot(mpg ~ wt+disp, data=mtcars)
+plot(mpg ~ wt+disp, data = mtcars)
 ```
+
+These plots show that as the displacement and weight increase, the mpg decreases.
 
 ### numerical summary
 
 ### model summary
+model3= lm(mpg ~ wt+disp, data = mtcars)
+model summary (coefficients, R², etc.), summarize the fit
 
+```{r}
+model3= lm(mpg ~ wt+disp, data = mtcars)
+summary(model3)
+```
+mpg (miles per gallon) is the response (Y)
+ wt (wt) and displacement (disp) are the predictors (X's)
+ 
 
 # anova: compare models 2 and 3
 
@@ -136,3 +154,4 @@ print(anova_result)
 ```
 
 # Discussion/Conclusions
+Based on the data from the models and tests, as the weight or displacement increases, the mpg decreases. There is a strong negative correlation in this graphs that demonstrate the decrease in mpg as the weight or/and displacement increase. Based on the model, it is clear that the weight and displacement explain the variation of the mpg with a significance in the strong negative correlation as displayed in their models and graphs.
