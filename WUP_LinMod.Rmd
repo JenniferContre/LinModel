@@ -36,21 +36,24 @@ head(mtcars)
 
 ## data summary
 ### graphical summary
+```{r}
+plot(mpg~wt,data=mtcars, pch=19)
+grid()
+```
+This plot shows that as the weight increases, the mpg decrease.
 
 ### numerical summary
+```{r}
+cor(mtcars$mpg, mtcars$wt)
+```
 
 ### model summary
-
 ```{r}
 model1 <- lm(mpg ~ wt, data = mtcars)
+
 summary(model1)
 ```
-```{r}
-newData = data.frame(wt=3.050, disp=122)
-print(predict(model1, newData, interval = 'predict'))
-```
 
-### predicted mpg
 
 # Model 2:
 
@@ -59,8 +62,16 @@ print(predict(model1, newData, interval = 'predict'))
 
 ## data summary
 ### graphical summary
+```{r}
+plot(mpg~disp,data=mtcars, pch=19)
+grid()
+```
+This plot shows that as the displacement increases, the mpg decrease.
 
 ### numerical summary
+```{r}
+cor(mtcars$mpg, mtcars$disp)
+```
 
 ### model summary
 
@@ -69,7 +80,7 @@ print(predict(model1, newData, interval = 'predict'))
 model2 <- lm(mpg ~ disp, data = mtcars)
 summary(model2)
 ```
-### predicted mpg 
+
 
 # Model 3 :
 
@@ -81,6 +92,7 @@ summary(model2)
 ```{r}
 plot(mpg ~ wt+disp, data = mtcars)
 ```
+
 ### numerical summary
 
 ### model summary
@@ -100,17 +112,19 @@ summary(model3)
 ```{r}
 plot(mpg ~ wt+disp, data=mtcars)
 ```
+
 ### numerical summary
 
 ### model summary
 
+
 # anova: compare models 2 and 3
+
+
 
 model3 <- lm(mpg ~ wt+disp, data = mtcars)
 
 model summary (coefficients, R², etc.)
-
-### predicted mpg
 
 ```{r}
 summary(model3)
@@ -121,4 +135,4 @@ anova_result <- anova(model1, model3)
 print(anova_result)
 ```
 
-# Discussion and Conculsions
+# Discussion/Conclusions
